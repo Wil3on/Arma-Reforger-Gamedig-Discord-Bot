@@ -18,9 +18,9 @@ npm -v
 
 ## Installation and Setup
 
-### 1. Clone the Repository
+### 1. Create a Project Folder
 ```bash
-git clone <your-repository-url>
+mkdir arma-reforger-status-bot
 cd arma-reforger-status-bot
 ```
 
