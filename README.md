@@ -1,41 +1,44 @@
- Install Required Software
-Make sure you have the following installed on your system:
+# Arma Reforger Discord Status Bot
 
-Node.js (Recommended version: 18.x or higher)
-npm (comes with Node.js)
-To check if they’re installed, run:
+## Overview
+This Discord bot provides real-time status updates for an Arma Reforger game server, displaying current player count, server status, and other key information in a specified Discord channel.
 
-bash
-Copy
-Edit
+## Prerequisites
+
+### Required Software
+- Node.js (Recommended version: 18.x or higher)
+- npm (comes with Node.js)
+
+### Verify Installation
+Check your Node.js and npm versions:
+```bash
 node -v
 npm -v
+```
 
-2. Set Up the Project
-Create a project folder:
+## Installation and Setup
 
-bash
-Copy
-Edit
-mkdir arma-reforger-status-bot
+### 1. Clone the Repository
+```bash
+git clone <your-repository-url>
 cd arma-reforger-status-bot
-Initialize the project:
+```
 
-bash
-Copy
-Edit
-npm init -y
-Install required packages: Run the following to install the dependencies:
+### 2. Install Dependencies
+```bash
+npm install
+```
 
-bash
-Copy
-Edit
-npm install discord.js gamedig
-Create a config.json file: Inside the project folder, create a file called config.json with the following structure:
+This will install the following key dependencies:
+- `discord.js`: Discord bot API
+- `gamedig`: Server query library
 
-json
-Copy
-Edit
+### 3. Configuration
+
+#### Create `config.json`
+Create a `config.json` file in the project root with the following structure:
+
+```json
 {
     "token": "YOUR_DISCORD_BOT_TOKEN",
     "channelId": "YOUR_CHANNEL_ID",
@@ -46,37 +49,50 @@ Edit
     "gameType": "arma3",
     "refreshRate": 60
 }
-Replace the placeholders with your actual information:
+```
 
-token: Your Discord bot token (from the Discord Developer Portal).
-channelId: The ID of the Discord channel where the bot will send status updates.
-serverIp: The IP address of your Arma Reforger server.
-serverPort: The query port of your server (not the game port; usually specified in server settings).
-gamePort: The game port of your server.
-gameType: For Arma Reforger, use arma3 as the type.
-refreshRate: Time (in seconds) between server status updates.
-3. Run the Bot
-Start the bot: Use this command to run the bot:
+#### Configuration Parameters
+- `token`: Discord bot token from the [Discord Developer Portal](https://discord.com/developers/applications)
+- `channelId`: Discord channel ID for status updates
+- `serverIp`: Arma Reforger server IP address
+- `serverPort`: Server query port
+- `gamePort`: Game server port
+- `gameType`: Use `arma3` for Arma Reforger
+- `refreshRate`: Update interval in seconds
 
-bash
-Copy
-Edit
+### 4. Running the Bot
+
+#### Development Mode
+```bash
 node index.js
-Verify in Discord: The bot should appear online, and it will send or update a message in the specified channel with the Arma Reforger server status.
+```
 
-4. Debugging and Logs
-If the bot doesn’t work as expected, check the console for errors.
-Common issues might include:
-Invalid token or channel ID.
-Server IP/port misconfiguration.
-Missing permissions for the bot to send messages.
-5. Run the Bot as a Service (Optional)
-If you want the bot to run continuously, you can use a process manager like PM2:
-
-bash
-Copy
-Edit
+#### Production Mode (Recommended)
+Using PM2 for continuous operation:
+```bash
 npm install -g pm2
 pm2 start index.js --name "arma-reforger-bot"
 pm2 save
 pm2 startup
+```
+
+## Troubleshooting
+
+### Common Issues
+- Invalid Discord bot token
+- Incorrect server IP or port configuration
+- Missing bot permissions in the Discord channel
+
+### Debugging
+- Check console logs for detailed error messages
+- Verify all configuration parameters
+- Ensure bot has necessary Discord permissions
+
+## Contributing
+Contributions are welcome! Please submit pull requests or open issues on the GitHub repository.
+
+## License
+[Specify your license here]
+
+## Disclaimer
+This bot is a community project and is not officially affiliated with Arma Reforger or Bohemia Interactive.
