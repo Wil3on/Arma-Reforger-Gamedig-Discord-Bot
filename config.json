@@ -7,5 +7,6 @@
   "serverPort": 00000000,
   "gamePort": 00000000,
   "gameType": "armareforger",
-  "refreshRate": 30
+  "refreshRate": 30,
+  "enableActivityStatus": true
 }
