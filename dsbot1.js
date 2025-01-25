@@ -1,4 +1,5 @@
-const { Client, GatewayIntentBits, EmbedBuilder } = require('discord.js');
+// bot.js
+const { Client, GatewayIntentBits, EmbedBuilder, ActivityType } = require('discord.js');
 const { GameDig } = require('gamedig');
 const config = require('./config.json');
 const fs = require('fs');
@@ -15,13 +16,23 @@ const gamedig = new GameDig();
 let statusMessage = null;
 let serverStartTime = null;
 
+function updateBotActivity(playerCount, maxPlayers) {
+    if (client.user && (config.enableActivityStatus !== false)) {
+        client.user.setActivity({
+            name: `S1: ${playerCount}/${maxPlayers}`,
+            type: ActivityType.Listening
+        });
+    } else if (client.user) {
+        client.user.setActivity(null);
+    }
+}
+
 client.once('ready', async () => {
     console.log(`Logged in as ${client.user.tag}!`);
     const channel = await client.channels.fetch(config.channelId);
     
     try {
         if (config.messageId) {
-            // Try to fetch existing message
             statusMessage = await channel.messages.fetch(config.messageId);
         }
     } catch (error) {
@@ -29,7 +40,6 @@ client.once('ready', async () => {
     }
 
     if (!statusMessage) {
-        // Create new status message if none exists
         const embed = new EmbedBuilder()
             .setTitle('Arma Reforger Server Status')
             .setDescription('Loading server information...')
@@ -37,12 +47,10 @@ client.once('ready', async () => {
         
         statusMessage = await channel.send({ embeds: [embed] });
         
-        // Save message ID to config
         config.messageId = statusMessage.id;
         fs.writeFileSync('./config.json', JSON.stringify(config, null, 2));
     }
     
-    // Update server status using configured refresh rate
     updateServerStatus();
     setInterval(updateServerStatus, config.refreshRate * 1000);
 });
@@ -58,18 +66,15 @@ async function updateServerStatus() {
             attemptTimeout: 10000
         });
 
-        console.log('Full server response:', JSON.stringify(state, null, 2)); // Detailed debug log
-
-        // Use numplayers for accurate player count
         const playerCount = state.numplayers || 0;
         const maxPlayers = state.maxplayers || 0;
 
-        // Update server start time if server is online
+        updateBotActivity(playerCount, maxPlayers);
+
         if (!serverStartTime) {
             serverStartTime = new Date();
         }
 
-        // Calculate uptime
         const uptime = serverStartTime ? Math.floor((new Date() - serverStartTime) / 1000) : 0;
         const uptimeHours = Math.floor(uptime / 3600);
         const uptimeMinutes = Math.floor((uptime % 3600) / 60);
@@ -106,19 +111,17 @@ async function updateServerStatus() {
         
         await statusMessage.edit({ embeds: [errorEmbed] });
 
-        // Reset server start time if server goes offline
         serverStartTime = null;
+        updateBotActivity(0, 0);
     }
 }
 
-// Replace the interactionCreate with messageCreate
 client.on('messageCreate', async message => {
     if (message.author.bot) return;
     if (!message.content.startsWith('!armareforgera1')) return;
 
     const channel = message.channel;
     
-    // Create new status message
     const embed = new EmbedBuilder()
         .setTitle('Arma Reforger Server Status')
         .setDescription('Loading server information...')
@@ -126,15 +129,12 @@ client.on('messageCreate', async message => {
     
     statusMessage = await channel.send({ embeds: [embed] });
     
-    // Save message ID to config
     config.messageId = statusMessage.id;
     config.channelId = channel.id;
     fs.writeFileSync('./config.json', JSON.stringify(config, null, 2));
     
-    // Update status immediately
     await updateServerStatus();
     
-    // Delete the command message
     await message.delete().catch(console.error);
 });
 
