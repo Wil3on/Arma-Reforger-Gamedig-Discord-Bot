@@ -24,9 +24,10 @@ mkdir arma-reforger-status-bot
 cd arma-reforger-status-bot
 ```
 
-### 2. Install Dependencies
+### 2. Install
 ```bash
-npm install
+npm init -y
+npm install discord.js gamedig
 ```
 
 This will install the following key dependencies:
