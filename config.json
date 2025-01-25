@@ -1,11 +1,11 @@
 {
-  "token": "MTMyNjY2ODk4NDIwNDAwNTQ1Ng.GPAAGW.cYFzMpMcuMm-lRQt4bs5CZQnIfE77aaWfUiwDI",
-  "clientId": "1328429007498383401",
-  "channelId": "1326213954934149160",
-  "messageId": "1332827695809302548",
-  "serverIp": "208.115.201.10",
-  "serverPort": 2201,
-  "gamePort": 2200,
+  "token": "00000000",
+  "clientId": "00000000",
+  "channelId": "0000000000000000
+  "messageId": "00000000",
+  "serverIp": "00000000",
+  "serverPort": 00000000,
+  "gamePort": 00000000,
   "gameType": "armareforger",
   "refreshRate": 30
 }
