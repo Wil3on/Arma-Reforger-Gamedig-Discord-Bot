@@ -90,7 +90,7 @@ async function updateServerStatus() {
                 `**Map:** ${state.map || 'Unknown'}\n` +
                 `**Server IP:** ${config.serverIp}:${config.gamePort}\n` +
                 `**Uptime:** ${uptimeString}\n` +
-                `**Updated:** ${new Date().toLocaleTimeString()}`
+                `**Updated:** ${new Date().toLocaleTimeString()} (Update Interval ${config.refreshRate} sec)`
             );
 
         await statusMessage.edit({ embeds: [embed] });
@@ -106,7 +106,7 @@ async function updateServerStatus() {
                 `**Map:** N/A\n` +
                 `**Server IP:** ${config.serverIp}:${config.gamePort}\n` +
                 `**Uptime:** N/A\n` +
-                `**Updated:** ${new Date().toLocaleTimeString()}`
+                `**Updated:** ${new Date().toLocaleTimeString()} (Update Interval ${config.refreshRate} sec)`
             );
         
         await statusMessage.edit({ embeds: [errorEmbed] });
