@@ -1,12 +1,28 @@
+# add comments to your code
+// This is a sample config file for the Discord Bot for Server Admin Tools
 {
-  "token": "00000000",
-  "clientId": "00000000",
-  "channelId": "0000000000000000
-  "messageId": "00000000",
-  "serverIp": "00000000",
-  "serverPort": 00000000,
-  "gamePort": 00000000,
-  "gameType": "armareforger",
-  "refreshRate": 30,
-  "enableActivityStatus": true
+  "token": "", // Discord Bot Token
+  "clientId": "", // Discord Bot Client ID
+  "channelId": "", // Discord Channel ID
+  "messageId": "", // Discord Message ID
+  "serverIp": "", // Server IP
+  "serverPort": 2201, // Query Port
+  "gamePort": 2200, // Game Port
+  "gameType": "arma3", // Game Type
+  "refreshRate": 30, // Refresh Rate in seconds
+  "enableActivityStatus": true, // Enable Activity Status
+  "stats_path": "/your-dir-to/ServerAdminTools_Stats.json", // Path to the stats file
+  "stats_display": {
+    "enabled": true, // Enable Stats Display
+    "show_fps": true, // Show FPS
+    "show_uptime": true, // Show Uptime
+    "show_bases": true, // Show Bases
+    "show_kills": true // Show Kills
+  },
+  "sftp": {
+    "host": "", // SFTP Host
+    "port": 8822, // SFTP Port
+    "username": "", // SFTP Username
+    "password": "" // SFTP Password
+  }
 }
