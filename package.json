@@ -1,0 +1,17 @@
+{
+  "name": "arma-reforger-gamedig-discord-bot",
+  "version": "1.0.0",
+  "main": "dsbot1.js",
+  "scripts": {
+    "start": "node dsbot1.js"
+  },
+  "dependencies": {
+    "discord.js": "latest",
+    "gamedig": "latest",
+    "ssh2-sftp-client": "latest"
+  },
+  "description": "## Overview This Discord bot provides real-time status updates for an Arma Reforger game server, displaying current player count, server status, and other key information in a specified Discord channel.",
+  "keywords": [],
+  "author": "Wil3son",
+  "license": "ISC"
+}
