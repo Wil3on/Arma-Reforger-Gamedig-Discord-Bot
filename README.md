@@ -1,14 +1,13 @@
 # Arma Reforger Discord Status Bot
 
 ## Overview
-This Discord bot provides real-time status updates for an Arma Reforger game server, displaying server status, player count, and ServerAdminTools statistics in a specified Discord channel.
+This Discord bot provides real-time status updates for an Arma Reforger game server, displaying current player count, server status, and other key information in a specified Discord channel.
 
 ## Prerequisites
 
 ### Required Software
 - Node.js (Recommended version: 18.x or higher)
 - npm (comes with Node.js)
-- SFTP access to your Arma Reforger server (for ServerAdminTools stats)
 
 ### Verify Installation
 Check your Node.js and npm versions:
@@ -28,13 +27,12 @@ cd arma-reforger-status-bot
 ### 2. Install
 ```bash
 npm init -y
-npm install discord.js gamedig ssh2-sftp-client
+npm install discord.js gamedig
 ```
 
-This will install the required dependencies:
+This will install the following key dependencies:
 - `discord.js`: Discord bot API
 - `gamedig`: Server query library
-- `ssh2-sftp-client`: For accessing server statistics
 
 ### 3. Configuration
 
@@ -47,24 +45,10 @@ Create a `config.json` file in the project root with the following structure:
     "channelId": "YOUR_CHANNEL_ID",
     "messageId": null,
     "serverIp": "YOUR_SERVER_IP",
-    "serverPort": "YOUR_QUERY_PORT",
-    "gamePort": "YOUR_GAME_PORT",
+    "serverPort": YOUR_SERVER_PORT,
+    "gamePort": YOUR_GAME_PORT,
     "gameType": "arma3",
-    "refreshRate": 30,
-    "enableActivityStatus": true,
-    "stats_path": "/path/to/ServerAdminTools_Stats.json",
-    "stats_display": {
-        "show_fps": true,
-        "show_uptime": true,
-        "show_bases": true,
-        "show_kills": true
-    },
-    "sftp": {
-        "host": "YOUR_SERVER_IP",
-        "port": 22,
-        "username": "sftp_username",
-        "password": "sftp_password"
-    }
+    "refreshRate": 60
 }
 ```
 
@@ -76,28 +60,6 @@ Create a `config.json` file in the project root with the following structure:
 - `gamePort`: Game server port
 - `gameType`: Use `arma3` for Arma Reforger
 - `refreshRate`: Update interval in seconds
-
-### Configuration Options
-
-#### Basic Settings
-- `token`: Discord bot token
-- `channelId`: Channel for status updates
-- `serverIp`: Server IP address
-- `serverPort`: Query port
-- `gamePort`: Game port
-- `refreshRate`: Update interval (seconds)
-
-#### Stats Display Options
-- `show_fps`: Show server FPS
-- `show_uptime`: Show match duration
-- `show_bases`: Show captured bases count
-- `show_kills`: Show total player kills
-
-#### SFTP Settings
-- `sftp.host`: Server IP
-- `sftp.port`: SFTP port
-- `sftp.username`: SFTP username
-- `sftp.password`: SFTP password
 
 ### 4. Running the Bot
 
@@ -114,29 +76,6 @@ pm2 start index.js --name "arma-reforger-bot"
 pm2 save
 pm2 startup
 ```
-
-## Features
-
-- Real-time server status monitoring
-- Player count tracking
-- Server performance stats (FPS)
-- Match statistics
-- Automatic status updates
-- Console countdown timer
-- Discord activity status
-- Configurable display options
-
-## Commands
-
-- `!armareforgera1`: Creates or updates the status message
-
-## Error Handling
-
-The bot handles:
-- Server offline status
-- SFTP connection failures
-- Invalid configurations
-- Discord API errors
 
 ## Troubleshooting
 

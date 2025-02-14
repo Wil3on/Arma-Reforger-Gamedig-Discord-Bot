@@ -1,0 +1,20 @@
+{
+  "totalKillsAllTime": 1276,
+  "lastTimestamp": "23:24:52.476",
+  "lastRoundWinner": "NATO",
+  "currentMatchKills": 351,
+  "collectionStartDate": "2025-02-12",
+  "winners": {
+    "NATO": 5,
+    "RUSSIA": 8,
+    "total": 13
+  },
+  "topKillers": [
+    {
+      "name": "clyde",
+      "kills": 0,
+      "lastKill": null,
+      "lastUpdated": "2025-02-12T23:32:56.823Z"
+    }
+  ]
+}

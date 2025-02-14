@@ -1,27 +1,50 @@
-// This is a sample config file for the Discord Bot for Server Admin Tools
 {
-  "token": "", // Discord Bot Token
-  "clientId": "", // Discord Bot Client ID
-  "channelId": "", // Discord Channel ID
-  "messageId": "", // Discord Message ID
-  "serverIp": "", // Server IP
-  "serverPort": 2201, // Query Port
-  "gamePort": 2200, // Game Port
-  "gameType": "arma3", // Game Type
-  "refreshRate": 30, // Refresh Rate in seconds
-  "enableActivityStatus": true, // Enable Activity Status
-  "stats_path": "/your-dir-to/ServerAdminTools_Stats.json", // Path to the stats file
+  "token": "MTMzODE2NzQ2OTUxNjI2MzQ3NQ.GDdWDR.p91zIi7u7VmgzpEUVjSrtqVG9D9OlRNApJn8XM",
+  "clientId": "1338167469516263475",
+  "channelId": "1326297579058761739",
+  "messageId": "1338978683549122622",
+  "serverIp": "208.115.206.194",
+  "serverPort": 2201,
+  "gamePort": 2200,
+  "gameType": "arma3",
+  "refreshRate": 5,
+  "enableActivityStatus": true,
+  "stats_path": "/208.115.206.194_2200/profile/profile/ServerAdminTools_Stats.json",
+  "baseLogPath": "/208.115.206.194_2200/profile/logs",
+  "timezone": "UTC",
+  "commands": {
+    "cooldown": 30,
+    "allowedRoles": [
+      "1326618954990489783",
+      "9876543210987654",
+      "1326278091995349032"
+    ],
+    "allowedChannels": [
+      "1326297579058761739",
+      "1234567890123456",
+      "1326214545429233717",
+      "1326297639326716045"
+    ]
+  },
+  "logging": {
+    "enabled": true,
+    "path": "./logs",
+    "maxFiles": 7
+  },
   "stats_display": {
-    "enabled": true, // Enable Stats Display
-    "show_fps": true, // Show FPS
-    "show_uptime": true, // Show Uptime
-    "show_bases": true, // Show Bases
-    "show_kills": true // Show Kills
+    "enabled": true,
+    "show_fps": true,
+    "show_uptime": true,
+    "show_bases": true,
+    "show_kills": true,
+    "show_last_winner": true,
+    "show_winner_stats": true,
+    "show_memory": true
   },
   "sftp": {
-    "host": "", // SFTP Host
-    "port": 8822, // SFTP Port
-    "username": "", // SFTP Username
-    "password": "" // SFTP Password
+    "host": "208.115.206.194",
+    "port": 8822,
+    "username": "elarg",
+    "password": "SandMan504"
   }
 }

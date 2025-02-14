@@ -3,12 +3,25 @@
   "version": "1.0.0",
   "main": "dsbot1.js",
   "scripts": {
-    "start": "node dsbot1.js"
+    "start": "node dsbot1.js",
+    "dev": "nodemon dsbot1.js",
+    "deploy": "node deploy-commands.js",
+    "test": "echo \"No tests specified\"",
+    "lint": "eslint ."
+  },
+  "engines": {
+    "node": ">=16.9.0"
   },
   "dependencies": {
-    "discord.js": "latest",
-    "gamedig": "latest",
-    "ssh2-sftp-client": "latest"
+    "discord.js": "^14.17.3",
+    "gamedig": "^5.2.0",
+    "moment-timezone": "^0.5.47",
+    "ssh2-sftp-client": "^11.0.0",
+    "winston": "^3.17.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "nodemon": "^3.0.2"
   },
   "description": "## Overview This Discord bot provides real-time status updates for an Arma Reforger game server, displaying current player count, server status, and other key information in a specified Discord channel.",
   "keywords": [],
