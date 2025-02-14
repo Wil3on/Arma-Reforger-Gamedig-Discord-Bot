@@ -1,29 +1,29 @@
 {
-  "token": "MTMzODE2NzQ2OTUxNjI2MzQ3NQ.GDdWDR.p91zIi7u7VmgzpEUVjSrtqVG9D9OlRNApJn8XM",
-  "clientId": "1338167469516263475",
-  "channelId": "1326297579058761739",
-  "messageId": "1338978683549122622",
-  "serverIp": "208.115.206.194",
+  "token": "",
+  "clientId": "",
+  "channelId": "",
+  "messageId": "",
+  "serverIp": "",
   "serverPort": 2201,
   "gamePort": 2200,
   "gameType": "arma3",
   "refreshRate": 5,
   "enableActivityStatus": true,
-  "stats_path": "/208.115.206.194_2200/profile/profile/ServerAdminTools_Stats.json",
-  "baseLogPath": "/208.115.206.194_2200/profile/logs",
+  "stats_path": "/ip/profile/profile/ServerAdminTools_Stats.json",
+  "baseLogPath": "/ip/profile/logs",
   "timezone": "UTC",
   "commands": {
     "cooldown": 30,
     "allowedRoles": [
-      "1326618954990489783",
-      "9876543210987654",
-      "1326278091995349032"
+      "",
+      "",
+      ""
     ],
     "allowedChannels": [
-      "1326297579058761739",
-      "1234567890123456",
-      "1326214545429233717",
-      "1326297639326716045"
+      "",
+      "",
+      "",
+      ""
     ]
   },
   "logging": {
@@ -42,9 +42,9 @@
     "show_memory": true
   },
   "sftp": {
-    "host": "208.115.206.194",
-    "port": 8822,
-    "username": "elarg",
-    "password": "SandMan504"
+    "host": "ip",
+    "port": port,
+    "username": "",
+    "password": ""
   }
 }
